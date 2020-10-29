@@ -239,8 +239,8 @@ def from_utc(utcTime, fmt=None):
         else:
             date = int(time.mktime(time_struct.timetuple()))
             return date
-    else:
-        raise ValueError("No UTC format matches {}".format(utcTime))
+        
+    raise ValueError("No UTC format matches {}".format(utcTime))
 
 
 class RecentRunHandler(BaseTaskHistoryHandler):
