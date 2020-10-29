@@ -1168,7 +1168,7 @@ class Scheduler:
         elif worker.is_trivial_worker(self._state):
             relevant_tasks = worker.get_tasks(self._state, PENDING, RUNNING)
             used_resources = collections.defaultdict(int)
-            greedy_workers = dict()  # If there's no resources, then they can grab any task
+            greedy_workers = {}  # If there's no resources, then they can grab any task
         else:
             relevant_tasks = self._state.get_active_tasks_by_status(PENDING, RUNNING)
             used_resources = self._used_resources()
