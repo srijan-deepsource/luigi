@@ -502,13 +502,11 @@ class HivePartitionTarget(luigi.Target):
         except HiveCommandError:
             if self.fail_missing_table:
                 raise
-            else:
-                if self.client.table_exists(self.table, self.database):
-                    # a real error occurred
-                    raise
-                else:
-                    # oh the table just doesn't exist
-                    return False
+            if self.client.table_exists(self.table, self.database):
+                # a real error occurred
+                raise
+            # oh the table just doesn't exist
+            return False
 
     @property
     def path(self):

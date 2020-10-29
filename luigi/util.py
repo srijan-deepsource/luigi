@@ -447,10 +447,9 @@ def previous(task):
 
     if len(previous_date_params) == 0:
         raise NotImplementedError("No task parameter - can't determine previous task")
-    elif len(previous_date_params) > 1:
+    if len(previous_date_params) > 1:
         raise NotImplementedError("Too many date-related task parameters - can't determine previous task")
-    else:
-        return task.clone(**previous_params)
+    return task.clone(**previous_params)
 
 
 def get_previous_completed(task, max_steps=10):
