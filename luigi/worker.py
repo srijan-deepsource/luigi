@@ -1197,8 +1197,7 @@ class Worker:
                     if self._keep_alive(get_work_response):
                         next(sleeper)
                         continue
-                    else:
-                        break
+                    break
                 else:
                     self._handle_next_task()
                     continue
