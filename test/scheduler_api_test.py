@@ -1958,10 +1958,10 @@ class SchedulerApiTest(unittest.TestCase):
         not_nurtured_statuses = [DONE, UNKNOWN, DISABLED, PENDING, FAILED]
 
         for status in nurtured_statuses:
-            self.assertEqual(set([status.lower()]), set(self.sch.task_list(status, '')))
+            self.assertEqual({status.lower()}, set(self.sch.task_list(status, '')))
 
         for status in not_nurtured_statuses:
-            self.assertEqual(set([]), set(self.sch.task_list(status, '')))
+            self.assertEqual(set(), set(self.sch.task_list(status, '')))
 
         self.assertEqual(1, len(self.sch.task_list(None, '')))  # None == All statuses
 
