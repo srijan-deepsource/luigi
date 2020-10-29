@@ -66,10 +66,10 @@ class RemoteContext:
 
     def __init__(self, host, **kwargs):
         self.host = host
-        self.username = kwargs.get('username', None)
-        self.key_file = kwargs.get('key_file', None)
-        self.connect_timeout = kwargs.get('connect_timeout', None)
-        self.port = kwargs.get('port', None)
+        self.username = kwargs.get('username')
+        self.key_file = kwargs.get('key_file')
+        self.connect_timeout = kwargs.get('connect_timeout')
+        self.port = kwargs.get('port')
         self.no_host_key_check = kwargs.get('no_host_key_check', False)
         self.sshpass = kwargs.get('sshpass', False)
         self.tty = kwargs.get('tty', False)
