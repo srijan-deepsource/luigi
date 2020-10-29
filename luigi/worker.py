@@ -1206,7 +1206,7 @@ class Worker:
             logger.debug("Pending tasks: %s", get_work_response.n_pending_tasks)
             self._run_task(get_work_response.task_id)
 
-        while len(self._running_tasks):
+        while self._running_tasks:
             logger.debug('Shut down Worker, %d more tasks to go', len(self._running_tasks))
             self._handle_next_task()
 
