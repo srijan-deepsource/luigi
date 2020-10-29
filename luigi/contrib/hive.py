@@ -173,10 +173,7 @@ class HiveCommandClient(HiveClient):
             stdout = run_hive_cmd("""use %s; show partitions %s partition
                                 (%s)""" % (database, table, self.partition_spec(partition)))
 
-            if stdout:
-                return True
-            else:
-                return False
+            return bool(stdout)
 
     def table_schema(self, table, database='default'):
         describe = run_hive_cmd("use {0}; describe {1}".format(database, table))
