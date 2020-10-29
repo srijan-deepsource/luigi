@@ -1174,8 +1174,8 @@ class Scheduler:
             used_resources = self._used_resources()
             activity_limit = time.time() - self._config.worker_disconnect_delay
             active_workers = self._state.get_active_workers(last_get_work_gt=activity_limit)
-            greedy_workers = dict((worker.id, worker.info.get('workers', 1))
-                                  for worker in active_workers)
+            greedy_workers = {worker.id: worker.info.get('workers', 1)
+                                  for worker in active_workers}
         tasks = list(relevant_tasks)
         tasks.sort(key=self._rank, reverse=True)
 
