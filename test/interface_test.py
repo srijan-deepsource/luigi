@@ -208,5 +208,4 @@ class CoreConfigTest(LuigiTestCase):
 
     @with_config({'core': {'parallel-scheduling-processes': '1234'}})
     def test_parallel_scheduling_processes(self):
-        from luigi.interface import core
         self.assertEquals(1234, core().parallel_scheduling_processes)

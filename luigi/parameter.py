@@ -724,9 +724,6 @@ class DateIntervalParameter(Parameter):
         see :py:mod:`luigi.date_interval`
           for details on the parsing of DateIntervals.
         """
-        # TODO: can we use xml.utils.iso8601 or something similar?
-
-        from luigi import date_interval as d
 
         for cls in [d.Year, d.Month, d.Week, d.Date, d.Custom]:
             i = cls.parse(s)

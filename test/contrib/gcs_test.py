@@ -29,7 +29,6 @@ except ImportError:
     raise unittest.SkipTest('Unable to load googleapiclient module')
 import os
 import tempfile
-import unittest
 
 from luigi.contrib import gcs
 from target_test import FileSystemTargetTestMixin
